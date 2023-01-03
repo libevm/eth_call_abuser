@@ -17,7 +17,8 @@
         ]
     },
     "include": [
-        "out"
+        "out",
+        "scripts-ts"
     ],
     "exclude": [
         "node_modules",

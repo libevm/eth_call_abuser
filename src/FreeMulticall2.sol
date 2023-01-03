@@ -14,6 +14,7 @@ contract FreeMulticall2 {
         address target;
         bytes callData;
     }
+
     struct Result {
         bool success;
         bytes returnData;
@@ -21,7 +22,7 @@ contract FreeMulticall2 {
 
     constructor(bool requireSuccess, Call[] memory calls) {
         Result[] memory returnData = new Result[](calls.length);
-        for(uint256 i = 0; i < calls.length; i++) {
+        for (uint256 i = 0; i < calls.length; i++) {
             (bool success, bytes memory ret) = calls[i].target.call(calls[i].callData);
 
             if (requireSuccess) {

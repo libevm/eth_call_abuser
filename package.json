@@ -9,7 +9,8 @@
   },
   "scripts": {
     "tc": "typechain --target ethers-v5 --out-dir types \"./out/**/*.json\"",
-    "abuse": "ts-node scripts-ts/index.ts"
+    "abuse": "ts-node scripts-ts/index.ts",
+    "ens": "ts-node scripts-ts/ens.ts"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.48.0",
