@@ -10,4 +10,6 @@ yarn
 forge build
 yarn tc
 yarn abuse
+# or
+yarn ens
 ```
