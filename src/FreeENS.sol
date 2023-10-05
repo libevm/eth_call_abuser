@@ -33,15 +33,15 @@ contract FreeENS {
             }
         }
 
-        // insure abi encoding, not needed here but increase reusability for different return types
-        // note: abi.encode add a first 32 bytes word with the address of the original data
+        // ensure abi encoding, not needed here but increase reusability for different return types
+        // note: abi.encode add a first 32 bytes word with the length of the original data
         bytes memory _abiEncodedData = abi.encode(r);
 
         assembly {
-            // Return from the start of the data (discarding the original data address)
-            // up to the end of the memory used
+            // Return from the start of the data (skipping the data length field)
+            // mload(bytes) returns the length of the bytes variable
             let dataStart := add(_abiEncodedData, 0x20)
-            return(dataStart, sub(msize(), dataStart))
+            return(dataStart, mload(_abiEncodedData))
         }
     }
 }
